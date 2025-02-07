@@ -1,0 +1,214 @@
+/* CSS Reset + Variables */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --accent-color: #617d98;
+  --accent-color-dark: #2c3e50;
+  --error-color: #e74c3c;
+  --font-main: "Poppins", sans-serif;
+}
+
+/* 
+  1) Full-page background image. 
+     The image is in /public/hero-bg.jpg. 
+     Use background-size: cover for a full-bleed effect.
+*/
+body {
+  font-family: var(--font-main);
+  background: url("./code.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: var(--accent-color-dark);
+}
+
+/* 
+  2) A translucent container to make cards stand out 
+     and reduce busy backgrounds behind text.
+*/
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  /* Optional: Some background layering if you want a more subtle overlay 
+     Example:  background-color: rgba(255, 255, 255, 0.2); 
+     or a subtle filter overlay. 
+  */
+}
+
+/* 
+  3) Hero header with a banner image 
+*/
+.hero-header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 2rem;
+  overflow: hidden; /* Ensures the banner image is contained */
+  border-radius: 8px;
+}
+
+/* Banner image styling */
+.banner-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.7); /* Slight darkening so text is visible */
+}
+
+/* Title text on top of the banner image */
+.app-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  color: #fff;
+  font-size: 2rem;
+}
+
+/* 
+  4) Main content: two cards side by side 
+     with a grid layout 
+*/
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+}
+
+/* Stacking on small screens */
+@media (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 5) Card styling */
+.card {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Headings inside the card */
+.card h2 {
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: var(--accent-color-dark);
+}
+
+/* 
+  6) Form styling 
+*/
+form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 500;
+  color: var(--accent-color);
+}
+
+form input {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: var(--font-main);
+  transition: border-color 0.2s ease;
+}
+
+form input:focus {
+  outline: none;
+  border-color: var(--accent-color-dark);
+}
+
+button {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  margin-top: 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: var(--font-main);
+}
+
+button:hover {
+  background-color: var(--accent-color-dark);
+}
+
+/* 
+  7) Error message styling 
+*/
+.error-message {
+  color: var(--error-color);
+  margin: 0.5rem 0;
+}
+
+/* 
+  8) List styling 
+*/
+.list-section ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.hero-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* 
+  9) Image + info in the list 
+*/
+.hero-avatar {
+  flex-shrink: 0;
+  margin-right: 1rem;
+}
+
+.hero-avatar img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+}
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-name {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+  color: var(--accent-color-dark);
+}
+
+.hero-power {
+  margin-bottom: 0.25rem;
+  color: var(--accent-color);
+}
+
+.hero-humility {
+  font-size: 0.9rem;
+  color: var(--accent-color-dark);
+}
